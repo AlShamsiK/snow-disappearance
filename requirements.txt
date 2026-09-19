@@ -1,11 +1,13 @@
-# Pinned for reproducibility. Colab preinstalls different versions; the notebook
-# installs these explicitly in its first cell.
-numpy==1.26.4
-pandas==2.2.2
-scikit-learn==1.5.1
-scipy==1.13.1
+# Colab already ships recent numpy, pandas, scipy, scikit-learn and matplotlib.
+# Pinning exact versions forces slow downgrades, so require minimums instead and
+# pin only what Colab does not ship. The versions actually used are recorded in
+# the README under "Reproducibility"; the notebook's setup cell prints them.
+numpy>=1.26
+pandas>=2.2
+scipy>=1.13
+scikit-learn>=1.5
+matplotlib>=3.9
+joblib>=1.4
+requests>=2.32
+pyarrow>=17
 lightgbm==4.5.0
-matplotlib==3.9.2
-joblib==1.4.2
-requests==2.32.3
-pyarrow==17.0.0

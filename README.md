@@ -86,11 +86,23 @@ python -m src.data_download
 
 ## Reproducibility
 
-- `requirements.txt` pins versions.
+- `requirements.txt` sets minimum versions and pins only `lightgbm`, so it installs
+  in seconds on Colab instead of downgrading the preinstalled stack. The exact
+  versions used for the reported results are recorded below.
 - `RANDOM_SEED` in `src/config.py` is used everywhere a seed is needed.
 - Raw data is committed, so the pipeline is deterministic from a clean clone.
 - The fitted model in `models/` is committed, so the demo cell loads rather than trains.
-- Python version used: `TBD`
+
+Environment used for the reported results (printed by the notebook's setup cell;
+update after the final run):
+
+| Package      | Version |
+|--------------|---------|
+| Python       | TBD     |
+| numpy        | TBD     |
+| pandas       | TBD     |
+| scikit-learn | TBD     |
+| lightgbm     | TBD     |
 
 ## Demo
 
