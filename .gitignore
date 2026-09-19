@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+.venv/
+env/
+*.egg-info/
+
+# Keep data/ and models/ tracked on purpose: the project is reproducible from a
+# clean clone and the Colab demo must not depend on the NRCS service.
+# Exclude only scratch files.
+data/scratch/
+*.tmp

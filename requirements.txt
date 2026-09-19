@@ -1,0 +1,11 @@
+# Pinned for reproducibility. Colab preinstalls different versions; the notebook
+# installs these explicitly in its first cell.
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+scipy==1.13.1
+lightgbm==4.5.0
+matplotlib==3.9.2
+joblib==1.4.2
+requests==2.32.3
+pyarrow==17.0.0
