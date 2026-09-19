@@ -64,7 +64,7 @@ In Colab, the first cell of the notebook clones this repo and installs dependenc
 Locally:
 
 ```bash
-git clone https://github.com/USERNAME/snow-disappearance.git
+git clone https://github.com/AlShamsiK/snow-disappearance.git
 cd snow-disappearance
 pip install -r requirements.txt
 jupyter notebook notebooks/snow_disappearance.ipynb
