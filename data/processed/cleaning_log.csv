@@ -1,0 +1,30 @@
+step,rule,affected,unit,note
+complete_calendar,insert missing station-dates as NaN rows,271,rows,makes gaps explicit; no values changed
+drop_duplicates,"repeated station-date rows, keep first",0,rows,
+to_si,convert inches to mm and Fahrenheit to Celsius,4626456,values,unit change only
+apply_physical_limits,WTEQ: clip small negatives (>= -5.0 mm) to 0,0,values,snow pillow drift around zero
+apply_physical_limits,WTEQ: set larger negatives to missing,0,values,
+apply_physical_limits,SNWD: clip small negatives (>= -5.0 mm) to 0,0,values,snow pillow drift around zero
+apply_physical_limits,SNWD: set larger negatives to missing,0,values,
+apply_physical_limits,PREC: clip small negatives (>= -5.0 mm) to 0,0,values,snow pillow drift around zero
+apply_physical_limits,PREC: set larger negatives to missing,0,values,
+apply_physical_limits,TAVG: outside -50..50 C set to missing,29,values,
+apply_physical_limits,TMAX: outside -50..50 C set to missing,135,values,
+apply_physical_limits,TMIN: outside -50..50 C set to missing,147,values,
+apply_physical_limits,TMIN > TMAX: both set to missing,170,rows,
+derive_daily_precip,PRCP = daily increment of cumulative PREC,840528,values,
+derive_daily_precip,negative increments set to 0,198,values,gauge drift / reset
+flag_swe_anomalies,isolated one-day spike > 50 mm set to missing,48,values,
+flag_swe_anomalies,isolated zero between days > 25 mm set to missing,1,values,sensor dropout
+flag_swe_anomalies,flat-line >= 20 days flagged (kept),6442,values,column WTEQ_flatline
+fill_missing,WTEQ: linear fill of gaps <= 5 days,106,values,604 values in longer gaps left missing
+fill_missing,SNWD: linear fill of gaps <= 5 days,1507,values,295481 values in longer gaps left missing
+fill_missing,TAVG: linear fill of gaps <= 5 days,3781,values,38113 values in longer gaps left missing
+fill_missing,TMAX: linear fill of gaps <= 5 days,4460,values,42998 values in longer gaps left missing
+fill_missing,TMIN: linear fill of gaps <= 5 days,4225,values,42267 values in longer gaps left missing
+screen_stations,peak SWE < 50 mm,68,station-years,
+screen_stations,feature-window SWE coverage < 90%,5,station-years,
+screen_stations,station has < 20 usable years,5,station-years,
+screen_stations,target-window SWE coverage < 90%,1,station-years,
+screen_stations,stations dropped entirely,1,stations,750:NV:SNTL
+screen_stations,station-years retained,2231,station-years,65 stations
